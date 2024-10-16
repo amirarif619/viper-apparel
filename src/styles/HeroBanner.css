@@ -6,14 +6,14 @@
   .hero-content {
     max-width: 1700px;
     margin: 0 auto;
-    text-align: left; /* Align the text to the left */
+    text-align: left; 
   }
   
   .hero-subtitle {
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
-    color: #888; /* Subtle gray for the subtitle */
+    color: #888; 
     margin-bottom: 10px;
   }
   

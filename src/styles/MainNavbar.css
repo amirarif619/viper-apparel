@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 .navbar-custom {
-    background-color: #ffffff; /* Matches the white background */
-    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #ffffff;
+    padding: 10px 20px; 
 }
 
 .nav-link-custom {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500; /* Bold font */
-    font-size: 18px; /* Adjust size to your preference */
+    font-weight: 500; 
+    font-size: 18px; 
     text-transform: uppercase;
-    margin-right: 50px; /* Space between menu items */
-    color: #000; /* Black text color */
+    margin-right: 50px; 
+    color: #000; 
     padding-bottom: 10px;
     position: relative;
 }
@@ -19,10 +19,10 @@
 .nav-link-custom:hover {
     text-decoration: none;
     color: #000;
-    border-bottom: 2px solid #000; /* Underline effect */
+    border-bottom: 2px solid #000; 
 }
 
-/* Aligning icons with text */
+
 .nav-link-custom, .navbar-custom i, .navbar-custom .fa-user {
     line-height: 1.5;
     vertical-align: middle;
@@ -35,13 +35,13 @@
     margin-right: 15px;
 }
 
-/* To adjust the container if needed */
+
 .navbar-custom .navbar-nav {
     align-items: center;
 }
 
 .custom-icon {
-    font-size: 1.2rem; /* Same as the text */
+    font-size: 1.2rem;
     margin-right: 10px;
     vertical-align: middle;
   }

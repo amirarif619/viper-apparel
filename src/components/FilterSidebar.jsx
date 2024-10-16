@@ -1,11 +1,11 @@
-import './FilterSidebar.css';
+import '../styles/FilterSidebar.css';
 import Accordion from 'react-bootstrap/Accordion';
 
 function FilterSidebar() {
   return (
     <div className="container-fluid mt-5">
       <div className="row">
-        <div className="col-3 sidebar sticky-top">
+        <div className="col-2 sidebar sticky-top">
           <h5>Mens</h5>
           <h2>TANKS & STRINGERS</h2>
           <p>55 Products</p>

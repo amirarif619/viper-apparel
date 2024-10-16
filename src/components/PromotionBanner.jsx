@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import './PromotionBanner.css'
+import '../styles/PromotionBanner.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -33,7 +33,7 @@ function PromotionBanner() {
             </Carousel.Item>
             <Carousel.Item>
               <div className="d-flex justify-content-center align-items-center">
-                <p className="m-0">🎁 FREE RETURNS ON ALL ORDER 🎁S</p>
+                <p className="m-0">🎁 FREE RETURNS ON ALL ORDERS 🎁</p>
               </div>
             </Carousel.Item>
             <Carousel.Item>

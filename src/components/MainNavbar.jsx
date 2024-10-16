@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import viperLogo from '../assets/viper.png'
-import './MainNavbar.css'
+import '../styles/MainNavbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -13,14 +13,17 @@ function MainNavbar() {
     <Navbar bg="light" expand="lg" className="navbar-custom">
       <Container fluid>
         <Navbar.Brand href="/" className="me-auto">
+        
         <img 
         src={viperLogo}
-        width="80"
-        height="80"
+        width="75"
+        height="75"
         className="d-inline-block align-top"
         alt="Viper Logo"
-        />
+        /> 
+        
       </Navbar.Brand>
+      <Nav.Link href="/" className="nav-link-custom px-2">VIPERWEAR</Nav.Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">

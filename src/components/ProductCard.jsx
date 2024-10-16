@@ -4,9 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
 import '../styles/ProductCard.css'
+import { useDispatch } from 'react-redux';
+import { addItem } from '../features/cart/cartSlice';
 
 
-function ProductCard({name, price, image, description, }) {
+function ProductCard({id, name, price, image, description}) {
+
+    const dispatch = useDispatch();
+
+    const handleAddToCart = () => {
+        dispatch(addItem({ id, name, price, quantity: 1}))
+    }
   return (
     <Card  className="product-card ">
     <div className="image-container">
@@ -25,7 +33,7 @@ function ProductCard({name, price, image, description, }) {
       <Card.Text>
         <strong>${price.toFixed(2)}</strong>
       </Card.Text>
-      <Button variant="primary" onClick={() => alert(`Added ${name} to cart!`)}>Add to Cart</Button>
+      <Button variant="dark" onClick={handleAddToCart}>Add to Cart</Button>
     </Card.Body>
   </Card>
 );

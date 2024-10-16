@@ -1,0 +1,33 @@
+.horizontal-carousel {
+    background-color: #eff1f3;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.horizontal-carousel p {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    line-height: 50px;
+    margin: 0;
+}
+
+.promotion-banner-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pause-play-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+}

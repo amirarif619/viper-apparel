@@ -13,7 +13,8 @@ function ProductCard({id, name, price, image, description}) {
     const dispatch = useDispatch();
 
     const handleAddToCart = () => {
-        dispatch(addItem({ id, name, price, quantity: 1}))
+        const resolvedImage = new URL(image, import.meta.url).href;
+        dispatch(addItem({ id, name, price, quantity: 1, image: resolvedImage}))
     }
   return (
     <Card  className="product-card ">

@@ -6,7 +6,7 @@ import FilterSidebar from "./components/FilterSidebar";
 import { Col, Container, Row } from "react-bootstrap";
 import Footer from "./components/Footer";
 import ProductGrid from "./components/ProductGrid";
-import Cart from "./components/Cart";
+
 
 function App() {
   return (
@@ -28,7 +28,6 @@ function App() {
     </Col>
     </Row>
     </Container>
-    <Cart />
     <Footer/>
     </>
   )

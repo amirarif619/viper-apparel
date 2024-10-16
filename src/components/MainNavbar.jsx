@@ -6,10 +6,25 @@ import viperLogo from '../assets/viper.png'
 import '../styles/MainNavbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import { useState } from 'react';
+import CartModal from './CartModal';
+import { useSelector } from 'react-redux';
 
 function MainNavbar() {
+  
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const cartItems = useSelector((state) => state.cart.items);
+  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
+
+
   return (
+    <>
+    <CartModal show={show} handleClose={handleClose} />
     <Navbar bg="light" expand="lg" className="navbar-custom">
       <Container fluid>
         <Navbar.Brand href="/" className="me-auto">
@@ -42,13 +57,20 @@ function MainNavbar() {
             <Nav.Link href="/search">
               <i className="bi bi-search"></i>
             </Nav.Link>
-            <Nav.Link href="/cart">
-              <i className="bi bi-bag"></i>
-            </Nav.Link>
+            <Nav.Link as="button" className="nav-link-custom position-relative" onClick={handleShow}>
+                <i className="bi bi-bag"></i>
+                {cartCount > 0 && (
+                  <span className="cart-badge position-absolute translate-middle badge rounded-pill bg-danger">
+                    {cartCount}
+                  </span>
+                )}
+
+</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </>
   );
 };
   

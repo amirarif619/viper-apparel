@@ -46,3 +46,10 @@
     vertical-align: middle;
   }
   
+  .cart-badge {
+    top: 11px;
+    right: -7px;
+    transform: translate(50%, -80%);
+    font-size: 0.75rem;
+    padding: 0.25em 0.4em;
+}

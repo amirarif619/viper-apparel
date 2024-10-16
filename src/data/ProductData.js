@@ -48,7 +48,7 @@ const products = [
         ],
       },
       {
-        id: 4,
+        id: 5,
         name: '1/4 Full sleeve top',
         price: 38.99,
         image: quarterzipImage,

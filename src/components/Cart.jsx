@@ -12,13 +12,13 @@ function Cart() {
 
   return (
     <div>
-      <h3>Your Cart</h3>
       {items.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (
         items.map((item) => (
           <div key={item.id} className="cart-item">
             <h5>{item.name}</h5>
+            <img src={item.image} alt={item.name} style={{ width: '100px', height: 'auto' }} />
             <p>Price: ${item.price}</p>
             <div>
               <label htmlFor={`quantity-${item.id}`}>Quantity:</label>

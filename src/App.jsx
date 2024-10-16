@@ -3,12 +3,9 @@ import MainNavbar from "./components/MainNavbar"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PromotionBanner from "./components/PromotionBanner";
 import FilterSidebar from "./components/FilterSidebar";
-import ProductCard from "./components/ProductCard";
 import { Col, Container, Row } from "react-bootstrap";
-import stringer from './assets/stringer.png'
-import shirtTop from './assets/shirt.png'
-import oversized from './assets/oversized.png'
 import Footer from "./components/Footer";
+import ProductGrid from "./components/ProductGrid";
 
 function App() {
   return (
@@ -25,10 +22,7 @@ function App() {
     </Col>
     <Col xs={9}>
     <Row>
-    <ProductCard image={stringer}/>
-    <ProductCard image={shirtTop}/>
-    <ProductCard image={oversized}/>
-    <ProductCard image={stringer}/>
+    <ProductGrid/>
     </Row>
     </Col>
     </Row>

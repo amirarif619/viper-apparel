@@ -1,8 +1,8 @@
 .sidebar {
     
-    padding: 30px;
+    padding: 20px;
     border-right: 1px solid #ddd;
-    width: 80%;
+   
     box-sizing: border-box; 
 }
 
@@ -11,13 +11,9 @@
     margin-top: 10px;
 }
 
-.btn-group .btn {
-    border-radius: 20px;
-}
 
-.accordion-item {
-    border: none;
-}
+
+
 
 .accordion-button::after {
     transform: rotate(90deg);

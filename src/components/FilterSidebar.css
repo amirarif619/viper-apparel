@@ -1,0 +1,21 @@
+.sidebar {
+    border-right: 1px solid #ddd;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-group .btn {
+    border-radius: 20px;
+}
+
+.accordion-item {
+    border: none;
+}
+
+.accordion-button::after {
+    transform: rotate(90deg);
+}

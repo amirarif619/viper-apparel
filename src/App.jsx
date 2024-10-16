@@ -2,6 +2,7 @@ import HeroBanner from "./components/HeroBanner";
 import MainNavbar from "./components/MainNavbar"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PromotionBanner from "./components/PromotionBanner";
+import FilterSidebar from "./components/FilterSidebar";
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
      <MainNavbar />
      <PromotionBanner/>
     <HeroBanner />
+    <FilterSidebar/>
 
     </>
   )

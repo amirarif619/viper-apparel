@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.navbar-custom {
+    background-color: #ffffff; /* Matches the white background */
+    padding: 10px 20px; /* Adjust padding as needed */
+}
+
+.nav-link-custom {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500; /* Bold font */
+    font-size: 18px; /* Adjust size to your preference */
+    text-transform: uppercase;
+    margin-right: 50px; /* Space between menu items */
+    color: #000; /* Black text color */
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.nav-link-custom:hover {
+    text-decoration: none;
+    color: #000;
+    border-bottom: 2px solid #000; /* Underline effect */
+}
+
+/* Aligning icons with text */
+.nav-link-custom, .navbar-custom i, .navbar-custom .fa-user {
+    line-height: 1.5;
+    vertical-align: middle;
+    margin: 0 5px;
+    font-size: 1.2rem;
+}
+
+.navbar-custom .fa-user, 
+.navbar-custom .bi {
+    margin-right: 15px;
+}
+
+/* To adjust the container if needed */
+.navbar-custom .navbar-nav {
+    align-items: center;
+}
+
+.custom-icon {
+    font-size: 1.2rem; /* Same as the text */
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  

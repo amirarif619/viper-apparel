@@ -1,6 +1,9 @@
 .sidebar {
+    
+    padding: 15px;
     border-right: 1px solid #ddd;
-    padding: 20px;
+    width: 80%;
+    box-sizing: border-box; 
 }
 
 .sidebar h2 {
@@ -18,4 +21,9 @@
 
 .accordion-button::after {
     transform: rotate(90deg);
+}
+
+.form-control {
+    width: 100%;
+    box-sizing: border-box; 
 }

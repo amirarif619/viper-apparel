@@ -3,9 +3,9 @@ import Accordion from 'react-bootstrap/Accordion';
 
 function FilterSidebar() {
   return (
-    <div className="container-fluid mt-5">
+    <div className="container-fluid">
       <div className="row">
-        <div className="col-2 sidebar sticky-top">
+        <div className="sidebar sticky-top">
           <h5>Mens</h5>
           <h2>TANKS & STRINGERS</h2>
           <p>55 Products</p>
@@ -13,7 +13,7 @@ function FilterSidebar() {
             <button type="button" className="btn btn-outline-secondary">Styles</button>
             <button type="button" className="btn btn-outline-secondary">Colorways</button>
           </div>
-          <input type="text" className="form-control mb-3" placeholder="Search products in this page..." />
+          <input type="text" className="form-control mb-3" placeholder="Search products..." />
           <div className="accordion" id="filterAccordion">
           <Accordion defaultActiveKey="0">
       <Accordion.Item eventKey="0">

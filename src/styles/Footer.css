@@ -1,0 +1,56 @@
+.footer {
+    background-color: #f8f9fa;
+    color: #212529;
+    padding-top: 20px;
+}
+
+.footer h6 {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 5px;
+}
+
+.footer ul li a {
+    color: #212529;
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-cta .cta-box {
+    background-color: #e9ecef;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.footer-payment-methods {
+    display: flex;
+    gap: 10px;
+    font-size: 24px;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    font-size: 20px;
+}
+
+.footer-legal {
+    border-top: 1px solid #dee2e6;
+    margin-top: 20px;
+    padding-top: 10px;
+}

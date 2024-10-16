@@ -8,6 +8,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import stringer from './assets/stringer.png'
 import shirtTop from './assets/shirt.png'
 import oversized from './assets/oversized.png'
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -19,10 +20,10 @@ function App() {
   </div>
     <Container fluid>
       <Row>
-        <Col xs={2}>
+        <Col xs={3}>
     <FilterSidebar/>
     </Col>
-    <Col xs={10}>
+    <Col xs={9}>
     <Row>
     <ProductCard image={stringer}/>
     <ProductCard image={shirtTop}/>
@@ -32,6 +33,7 @@ function App() {
     </Col>
     </Row>
     </Container>
+    <Footer/>
     </>
   )
 }

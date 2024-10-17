@@ -6,7 +6,8 @@ import FilterSidebar from "./components/FilterSidebar";
 import { Col, Container, Row } from "react-bootstrap";
 import Footer from "./components/Footer";
 import ProductGrid from "./components/ProductGrid";
-
+import { ToastContainer, Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -29,6 +30,19 @@ function App() {
     </Row>
     </Container>
     <Footer/>
+    <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </>
   )
 }

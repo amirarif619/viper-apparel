@@ -6,7 +6,9 @@ import { Button } from 'react-bootstrap';
 import '../styles/ProductCard.css'
 import { useDispatch } from 'react-redux';
 import { addItem } from '../features/cart/cartSlice';
+import { toast } from 'react-toastify';
 
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 function ProductCard({id, name, price, image, description}) {
 
@@ -15,7 +17,30 @@ function ProductCard({id, name, price, image, description}) {
     const handleAddToCart = () => {
         const resolvedImage = new URL(image, import.meta.url).href;
         dispatch(addItem({ id, name, price, quantity: 1, image: resolvedImage}))
-    }
+    
+
+        toast(
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <img 
+                src={image} 
+                alt={name} 
+                style={{ width: '70px', height: '70px', marginRight: '15px', borderRadius: '5px' }} 
+              />
+              <div style={{ flexGrow: 1 }}>
+                <h4 style={{ margin: 0, fontSize: '19px', color: '#000', fontWeight: 'bold', padding: '5px' }}>Added To Bag</h4>
+                <p style={{ margin: 0, fontSize: '17px' }}>{name}</p>
+              </div>
+              <FontAwesomeIcon 
+                icon={faCheckCircle} 
+                style={{ marginLeft: 'auto', color: 'black', fontSize: '20px' }} 
+              />
+            </div>,
+           
+            
+          );
+        };
+        
+
   return (
     <Card  className="product-card ">
     <div className="image-container">

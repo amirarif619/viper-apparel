@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { useState } from 'react';
-import CartModal from './CartModal';
+import CartOffcanvas from './CartOffcanvas';
 import { useSelector } from 'react-redux';
 
 function MainNavbar() {
@@ -24,7 +24,7 @@ function MainNavbar() {
 
   return (
     <>
-    <CartModal show={show} handleClose={handleClose} />
+    <CartOffcanvas show={show} handleClose={handleClose} />
     <Navbar bg="light" expand="lg" className="navbar-custom">
       <Container fluid>
         <Navbar.Brand href="/" className="me-auto">

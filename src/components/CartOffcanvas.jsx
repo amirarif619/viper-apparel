@@ -1,10 +1,22 @@
 
 import {  Button, Offcanvas, Row, Col } from 'react-bootstrap';
 import Cart from './Cart';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchCart } from '../redux/cartSlice';
 
 function CartOffCanvas({show, handleClose}) {
-  const items = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
+  const { items, loading, error } = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    if (show) {
+      dispatch(fetchCart());
+    }
+  }, [show,dispatch]);
+
+  if (loading) return <p>Loading cart....</p>;
+  if (error) return <p>Error fetching cart: {error}</p>
   
   const subtotal = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const shipping = 5
@@ -23,7 +35,7 @@ function CartOffCanvas({show, handleClose}) {
             <i className="bi bi-check-circle-fill text-success"></i>
             You&apos;ve qualified for Free Standard Shipping 
           </div>
-        <Cart/>
+        <Cart items={items}/>
         </Offcanvas.Body>
         
         <div className="p-3 border-top">

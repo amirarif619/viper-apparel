@@ -1,7 +1,9 @@
 import '../styles/HeroBanner.css'
+import SignIn from './SignIn';
 
 function HeroBanner() {
     return (
+      <>
       <section className="hero-banner">
         <div className="hero-content">
           <p className="hero-subtitle">MEN&apos;S</p>
@@ -16,6 +18,8 @@ function HeroBanner() {
           </div>
         </div>
       </section>
+      <SignIn />
+      </>
     );
   }
   

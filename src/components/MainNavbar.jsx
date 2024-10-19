@@ -11,6 +11,7 @@ import { useState } from 'react';
 import CartOffcanvas from './CartOffcanvas';
 import { useSelector } from 'react-redux';
 
+
 function MainNavbar() {
   
   const [show, setShow] = useState(false);
@@ -42,15 +43,19 @@ function MainNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
+          
             <Nav.Link href="/" className="nav-link-custom">WOMEN</Nav.Link>
             <Nav.Link href="/" className="nav-link-custom">MEN</Nav.Link>
             <Nav.Link href="/" className="nav-link-custom">ACCESSORIES</Nav.Link>
             <Nav.Link href="/" className="nav-link-custom">NEW ARRIVALS</Nav.Link>
+            
             <NavDropdown  className="nav-link-custom" title={<FontAwesomeIcon icon={faUser} />} id="basic-nav-dropdown">
               <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
               <NavDropdown.Item href="/orders">My Orders</NavDropdown.Item>
+              
               <NavDropdown.Divider />
               <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
+              
             </NavDropdown>
           </Nav>
           <Nav>

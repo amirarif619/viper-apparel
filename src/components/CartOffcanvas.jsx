@@ -33,7 +33,15 @@ function CartOffCanvas({show, handleClose}) {
   if (loading) return <p>Loading cart....</p>;
   if (error) return <p>Error fetching cart: {error}</p>
   
-  const subtotal = cartItems.reduce((acc, item) => acc + (item.price * item.quantity || 0), 0)
+  const subtotal = cartItems.reduce((acc, item) => {
+    const itemPrice = item.price || 0; 
+    const itemQuantity = item.quantity || 0;  
+    console.log(`Calculating subtotal for item: ${item.name}, Price: ${itemPrice}, Quantity: ${itemQuantity}`);
+    return acc + (itemPrice * itemQuantity);
+  }, 0);
+  
+  console.log(`Subtotal calculated: $${subtotal}`);
+
   const shipping = 5
   const total = subtotal + shipping;
 

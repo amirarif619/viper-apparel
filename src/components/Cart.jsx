@@ -54,19 +54,27 @@ const handleRemoveItem = (product_variant_id) => {
     });
 };
     
+
+const mergedCartItems = updatedCartItems.map((cartItem) => {
+  const product = products.find((p) => p.product_variant_id === cartItem.product_variant_id); 
   
-    
-    
-    const mergedCartItems = updatedCartItems.map((cartItem) => {
-      const product = products.find((p) => p.product_variant_id === cartItem.product_variant_id); 
-      return {
-        ...cartItem,  
-        ...product, 
-        image: product?.image
-      };
-    });
-    
-    console.log('Updated cart state:', updatedCartItems);
+  console.log('Cart item:', cartItem); 
+  console.log('Matching product:', product); 
+  
+  if (!product) {
+    console.error(`Product not found for variant ID: ${cartItem.product_variant_id}`);
+  }
+  
+  return {
+    ...cartItem,  
+    ...product, 
+    image: product?.image,
+    price: product?.price
+  };
+});
+
+console.log('Updated cart state:', updatedCartItems);
+
 
   
   return (

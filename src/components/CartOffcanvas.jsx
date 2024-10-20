@@ -4,7 +4,7 @@ import Cart from './Cart';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState,  } from 'react';
 import { fetchCart } from '../redux/cartSlice';
-
+import products from '../data/ProductData'; 
 function CartOffCanvas({show, handleClose}) {
   const dispatch = useDispatch();
   const { items, loading, error } = useSelector((state) => state.cart);
@@ -28,19 +28,22 @@ function CartOffCanvas({show, handleClose}) {
       });
     }
   }, [cartFetched, dispatch]);
-
+  
   const cartItems = Array.isArray(items) ? items : [];
+
   if (loading) return <p>Loading cart....</p>;
   if (error) return <p>Error fetching cart: {error}</p>
   
   const subtotal = cartItems.reduce((acc, item) => {
-    const itemPrice = item.price || 0; 
-    const itemQuantity = item.quantity || 0;  
-    console.log(`Calculating subtotal for item: ${item.name}, Price: ${itemPrice}, Quantity: ${itemQuantity}`);
-    return acc + (itemPrice * itemQuantity);
+    const product = products.find((p) => p.product_variant_id === item.product_variant_id);
+    const itemPrice = product?.price || 0;
+    const itemQuantity = item.quantity || 0;
+
+    console.log(`Calculating subtotal for item: ${product?.name}, Price: ${itemPrice}, Quantity: ${itemQuantity}`);
+    return acc + itemPrice * itemQuantity;
   }, 0);
-  
-  console.log(`Subtotal calculated: $${subtotal}`);
+    
+
 
   const shipping = 5
   const total = subtotal + shipping;
@@ -58,7 +61,7 @@ function CartOffCanvas({show, handleClose}) {
             <i className="bi bi-check-circle-fill text-success"></i>
             You&apos;ve qualified for Free Standard Shipping 
           </div>
-        <Cart items={items}/>
+        <Cart items={cartItems} subtotal={subtotal}/>
         </Offcanvas.Body>
         
         <div className="p-3 border-top">

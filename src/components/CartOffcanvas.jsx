@@ -1,17 +1,21 @@
 
-import {  Button, Offcanvas, Row, Col } from 'react-bootstrap';
+import {  Offcanvas, Row, Col } from 'react-bootstrap';
 import Cart from './Cart';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState,  } from 'react';
 import { fetchCart } from '../redux/cartSlice';
 import products from '../data/ProductData'; 
+import CheckoutButton from './CheckoutButton';
+
+
 function CartOffCanvas({show, handleClose}) {
   const dispatch = useDispatch();
   const { items, loading, error } = useSelector((state) => state.cart);
   const [cartFetched, setCartFetched] = useState(false);
   const [offCanvasOpen, setOffCanvasOpen] = useState(show);
- 
+  
 
+ 
   useEffect(() => {
     if (show) {
       setOffCanvasOpen(true);
@@ -93,9 +97,7 @@ function CartOffCanvas({show, handleClose}) {
     
 
       <div className="offcanvas-footer p-3">
-        <Button variant="primary" className="btn-lg btn-block w-100">
-          <i className="bi bi-bag-fill"></i> Checkout Securely
-        </Button>
+        <CheckoutButton cartItems={cartItems} />
       </div>
       </Offcanvas>
     </>

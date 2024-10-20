@@ -97,7 +97,7 @@ const cartSlice = createSlice({
   extraReducers: (builder) => {
     builder
     .addCase(fetchCart.pending, (state) => {
-      // Clear the cart items before fetching to prevent compounding
+    
       state.items = [];
       state.loading = true;
       state.error = null;
@@ -121,13 +121,19 @@ const cartSlice = createSlice({
       })
       .addCase(updateItemQuantity.fulfilled, (state, action) => {
         console.log('Payload received in fulfilled action:', action.payload);
-        const item = state.items.find(item => item.product_variant_id === action.payload.product_variant_id);
-  if (item) {
-    console.log('Before update, item:', item);  // Log current state of the item
-    item.quantity = action.payload.quantity;   // Update the quantity
-    console.log('After update, item:', item);
+      
+        const updatedItem = action.payload.data; 
+      
+        
+        const item = state.items.find(item => item.id === updatedItem.id);
+      
+        if (item) {
+          
+          item.quantity = updatedItem.quantity;
         }
-});
+      
+        console.log('Updated item in Redux state:', state.items);
+      });
   }
 });
 

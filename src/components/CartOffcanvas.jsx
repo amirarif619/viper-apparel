@@ -2,21 +2,32 @@
 import {  Button, Offcanvas, Row, Col } from 'react-bootstrap';
 import Cart from './Cart';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect,  } from 'react';
+import { useEffect, useState,  } from 'react';
 import { fetchCart } from '../redux/cartSlice';
 
 function CartOffCanvas({show, handleClose}) {
   const dispatch = useDispatch();
   const { items, loading, error } = useSelector((state) => state.cart);
-
+  const [cartFetched, setCartFetched] = useState(false);
+  const [offCanvasOpen, setOffCanvasOpen] = useState(show);
  
 
   useEffect(() => {
     if (show) {
-      console.log("Fetching cart..."); 
-      dispatch(fetchCart())
+      setOffCanvasOpen(true);
+    } else {
+      setOffCanvasOpen(false);
     }
-  }, [show, dispatch]);
+  }, [show]);
+
+  useEffect(() => {
+    if (!cartFetched) {
+      dispatch(fetchCart()).then((response) => {
+        console.log("Cart fetched from backend:", response);
+        setCartFetched(true);  // Mark as fetched
+      });
+    }
+  }, [cartFetched, dispatch]);
 
   const cartItems = Array.isArray(items) ? items : [];
   if (loading) return <p>Loading cart....</p>;
@@ -30,7 +41,7 @@ function CartOffCanvas({show, handleClose}) {
     <>
       
 
-      <Offcanvas show={show} onHide={handleClose}  placement="end" style={{ width: '650px' }}>
+      <Offcanvas show={offCanvasOpen} onHide={handleClose}  placement="end" style={{ width: '650px' }}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Your Bag</Offcanvas.Title>
         </Offcanvas.Header>

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import {   fetchCart, removeItem, updateItemQuantity } from '../redux/cartSlice';
+import { removeItem, updateItemQuantity } from '../redux/cartSlice';
 import { Card, Form, Button, Spinner } from 'react-bootstrap';
 import products from '../data/ProductData'; 
 import { useState } from 'react';
@@ -12,19 +12,14 @@ function Cart() {
   
   console.log('Updated cart state:', updatedCartItems);
 
-   // Handle quantity change in the local state
+ 
    const handleQuantityChange = (id, newQuantity) => {
     console.log(`Updating item with Cart ID: ${id}, New Quantity: ${newQuantity}`);
     
-    setLoadingItemId(id);  // Show loading spinner for this item
+    setLoadingItemId(id);  
     dispatch(updateItemQuantity({ id, quantity: newQuantity }))
-    .unwrap()
-    .then(() => {
-      // Once update is complete, refetch the cart data
-      dispatch(fetchCart());
-    })
     .finally(() => {
-      setLoadingItemId(null);  // Stop the spinner
+      setLoadingItemId(null);  
     });
 };
 
@@ -36,7 +31,7 @@ function Cart() {
     
   
     
-    // Merging cart items with product data for display
+    
     const mergedCartItems = updatedCartItems.map((cartItem) => {
       const product = products.find((p) => p.product_variant_id === cartItem.product_variant_id); 
       return {
@@ -48,7 +43,7 @@ function Cart() {
     
     console.log('Updated cart state:', updatedCartItems);
 
-  // Render the cart items
+  
   return (
     <div className="cart-items">
       {mergedCartItems.length === 0 ? (

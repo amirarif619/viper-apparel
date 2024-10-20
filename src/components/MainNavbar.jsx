@@ -7,22 +7,41 @@ import '../styles/MainNavbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CartOffcanvas from './CartOffcanvas';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import {  fetchCart } from '../redux/cartSlice';
+import { getAuth } from 'firebase/auth';
 
 
 function MainNavbar() {
   
   const [show, setShow] = useState(false);
+  const dispatch = useDispatch()
+  const auth = getAuth();
+  
+  const cartItems = useSelector((state) => state.cart.items) || [];
+  const cartCount = Array.isArray(cartItems) 
+  ? cartItems.reduce((acc, item) => acc + item.quantity, 0)
+  : 0
+  
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+       
+        dispatch(fetchCart());
+      }
+    })
+    
+    return () => unsubscribe();
+  }, [auth, dispatch]);
+  
+  console.log('Current Cart Items:', cartItems); 
+  console.log('Cart Count:', cartCount); 
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const cartItems = useSelector((state) => state.cart.items);
-  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-
-
-
+  
   return (
     <>
     <CartOffcanvas show={show} handleClose={handleClose} />

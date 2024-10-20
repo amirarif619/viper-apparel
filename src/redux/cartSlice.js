@@ -2,14 +2,14 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { getAuth } from 'firebase/auth';
 
-export const fetchCart = createAsyncThunk('cart/fetchCart', async(_, {rejectWithValue}) => {
+export const fetchCart = createAsyncThunk('cart/fetchCart', async(_, { rejectWithValue }) => {
   const auth = getAuth();
   const user = auth.currentUser;
 
   if (user) {
     try {
       const token = await user.getIdToken();
-      const response = await axios.get('/api/cart', {
+      const response = await axios.get('https://57e1fe74-02a5-4657-b006-2b227766f34f-00-hxfn748x47r1.pike.replit.dev/cart', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -20,8 +20,67 @@ export const fetchCart = createAsyncThunk('cart/fetchCart', async(_, {rejectWith
     }
   }
   return rejectWithValue('User is not authenticated');
-  })
+});
 
+export const addItem = createAsyncThunk('cart/addItem', async (item, { rejectWithValue }) => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  if (user) {
+    try {
+      const token = await user.getIdToken();
+      const response = await axios.post('https://57e1fe74-02a5-4657-b006-2b227766f34f-00-hxfn748x47r1.pike.replit.dev/cart', item, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+  return rejectWithValue('User is not authenticated');
+});
+
+export const removeItem = createAsyncThunk('cart/removeItem', async (id, { rejectWithValue }) => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  if (user) {
+    try {
+      const token = await user.getIdToken();
+      const response = await axios.delete(`https://57e1fe74-02a5-4657-b006-2b227766f34f-00-hxfn748x47r1.pike.replit.dev/cart/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+  return rejectWithValue('User is not authenticated');
+});
+
+export const updateItemQuantity = createAsyncThunk('cart/updateItemQuantity', async ({ id, quantity }, { rejectWithValue }) => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  if (user) {
+    try {
+      const token = await user.getIdToken();
+      const response = await axios.put(`https://57e1fe74-02a5-4657-b006-2b227766f34f-00-hxfn748x47r1.pike.replit.dev/cart/${id}`, { quantity }, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+  return rejectWithValue('User is not authenticated');
+});
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -31,43 +90,46 @@ const cartSlice = createSlice({
     error: null,
   },
   reducers: {
-    addItem: (state, action) => {
-      const existingItem = state.items.find(
-        (item) => item.id === action.payload.id
-      );
-      if (existingItem) {
-        existingItem.quantity += action.payload.quantity;
-      } else {
-        state.items.push({ ...action.payload, quantity: 1 });
-      }
-      console.log(state.items)
-    },
-    removeItem: (state, action) => {
-      state.items = state.items.filter((item) => item.id !== action.payload.id);
-    },
-    updateItemQuantity: (state, action) => {
-      const item = state.items.find((item) => item.id === action.payload.id);
-      if (item) {
-        item.quantity = action.payload.quantity;
-      }
-    },
-  },
+    clearCart: (state) => {
+      state.items = [];
+  }
+},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCart.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+    .addCase(fetchCart.pending, (state) => {
+      // Clear the cart items before fetching to prevent compounding
+      state.items = [];
+      state.loading = true;
+      state.error = null;
+    })
+    .addCase(fetchCart.fulfilled, (state, action) => {
+      state.items = Array.isArray(action.payload) ? action.payload : [];
+      state.loading = false;
+    })
+    .addCase(addItem.fulfilled, (state, action) => {
+      console.log("Response from server after adding item:", action.payload);
+      const existingItem = state.items.find(item => item.product_variant_id === action.payload.product_variant_id);
+      if (existingItem) {
+        existingItem.quantity = action.payload.quantity;
+      } else {
+        state.items = [...state.items, action.payload];
+        console.log("After adding item:", state.items);
+      }
+    })
+      .addCase(removeItem.fulfilled, (state, action) => {
+        state.items = state.items.filter(item => item.product_variant_id !== action.payload.product_variant_id);
       })
-      .addCase(fetchCart.fulfilled, (state, action) => {
-        state.items = action.payload;
-        state.loading = false;
-      })
-      .addCase(fetchCart.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload || 'Something went wrong';
-      });
-  },
+      .addCase(updateItemQuantity.fulfilled, (state, action) => {
+        console.log('Payload received in fulfilled action:', action.payload);
+        const item = state.items.find(item => item.product_variant_id === action.payload.product_variant_id);
+  if (item) {
+    console.log('Before update, item:', item);  // Log current state of the item
+    item.quantity = action.payload.quantity;   // Update the quantity
+    console.log('After update, item:', item);
+        }
+});
+  }
 });
 
-export const { addItem, removeItem, updateItemQuantity } = cartSlice.actions;
 export default cartSlice.reducer;
+export const { clearCart } = cartSlice.actions;

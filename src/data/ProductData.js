@@ -4,7 +4,7 @@ import oversizedImage from '../assets/oversized.png'
 import quarterzipImage from '../assets/quarterzip.png'
 const products = [
     {
-      id: 1,
+      product_variant_id: 1,
       name: 'Gym T-Shirt',
       price: 29.99,
       image: shirtImage, 
@@ -15,7 +15,7 @@ const products = [
       ],
     },
     {
-      id: 2,
+      product_variant_id: 2,
       name: 'Stringer',
       price: 24.99,
       image: stringerImage,
@@ -26,7 +26,7 @@ const products = [
       ],
     },
     {
-        id: 3,
+      product_variant_id: 3,
         name: 'Oversized T-shirt',
         price: 28.99,
         image: oversizedImage,
@@ -37,7 +37,7 @@ const products = [
         ],
       },
       {
-        id: 4,
+        product_variant_id: 4,
         name: '1/4 Full sleeve top',
         price: 38.99,
         image: quarterzipImage,
@@ -48,7 +48,7 @@ const products = [
         ],
       },
       {
-        id: 5,
+        product_variant_id: 5,
         name: '1/4 Full sleeve top',
         price: 38.99,
         image: quarterzipImage,

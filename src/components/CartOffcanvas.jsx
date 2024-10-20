@@ -2,23 +2,27 @@
 import {  Button, Offcanvas, Row, Col } from 'react-bootstrap';
 import Cart from './Cart';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect,  } from 'react';
 import { fetchCart } from '../redux/cartSlice';
 
 function CartOffCanvas({show, handleClose}) {
   const dispatch = useDispatch();
   const { items, loading, error } = useSelector((state) => state.cart);
 
+ 
+
   useEffect(() => {
     if (show) {
-      dispatch(fetchCart());
+      console.log("Fetching cart..."); 
+      dispatch(fetchCart())
     }
-  }, [show,dispatch]);
+  }, [show, dispatch]);
 
+  const cartItems = Array.isArray(items) ? items : [];
   if (loading) return <p>Loading cart....</p>;
   if (error) return <p>Error fetching cart: {error}</p>
   
-  const subtotal = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const subtotal = cartItems.reduce((acc, item) => acc + (item.price * item.quantity || 0), 0)
   const shipping = 5
   const total = subtotal + shipping;
 

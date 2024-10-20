@@ -5,18 +5,20 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
 import '../styles/ProductCard.css'
 import { useDispatch } from 'react-redux';
-import { addItem } from '../features/cart/cartSlice';
+import { addItem } from '../redux/cartSlice';
 import { toast } from 'react-toastify';
 
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
-function ProductCard({id, name, price, image, description}) {
+function ProductCard({product_variant_id, name, price, image, description}) {
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
     const handleAddToCart = () => {
+      
         const resolvedImage = new URL(image, import.meta.url).href;
-        dispatch(addItem({ id, name, price, quantity: 1, image: resolvedImage}))
+        console.log({ product_variant_id, name, price, quantity: 1 });
+        dispatch(addItem({ product_variant_id, name, price, quantity: 1, image: resolvedImage}))
     
 
         toast(

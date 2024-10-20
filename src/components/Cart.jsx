@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { removeItem, updateItemQuantity } from '../redux/cartSlice';
-import { Card, Form, Button, Spinner } from 'react-bootstrap';
+import {  removeItem, updateItemQuantity } from '../redux/cartSlice';
+import { Card, Form, Button, Spinner, Modal } from 'react-bootstrap';
 import products from '../data/ProductData'; 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Cart() {
   
@@ -10,8 +10,14 @@ function Cart() {
   const updatedCartItems = useSelector((state) => state.cart.items);
   const [loadingItemId, setLoadingItemId] = useState(null);
   
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState(null);
+
   console.log('Updated cart state:', updatedCartItems);
 
+  useEffect(() => {
+    console.log("Cart updated:", updatedCartItems);
+  }, [updatedCartItems])
  
    const handleQuantityChange = (id, newQuantity) => {
     console.log(`Updating item with Cart ID: ${id}, New Quantity: ${newQuantity}`);
@@ -23,11 +29,30 @@ function Cart() {
     });
 };
 
+const handleShowDeleteModal = (product_variant_id) => {
+  setItemToDelete(product_variant_id);  
+  setShowDeleteModal(true);  
+};
 
+const handleConfirmDelete = () => {
+  if (itemToDelete) {
+    handleRemoveItem(itemToDelete); 
+    setShowDeleteModal(false); 
+  }
+};
 
-    const handleRemoveItem = (product_variant_id) => {
-      dispatch(removeItem(product_variant_id));
-    }
+const handleRemoveItem = (product_variant_id) => {
+  setLoadingItemId(product_variant_id); 
+
+  dispatch(removeItem(product_variant_id))
+    .finally(() => {
+      setLoadingItemId(null);
+      setShowDeleteModal(false)
+    })
+    .catch((error) => {
+      console.error('Error removing item:', error);
+    });
+};
     
   
     
@@ -90,7 +115,7 @@ function Cart() {
                 <div className="d-flex flex-column align-items-center">
                   <Button
                     variant="light"
-                    onClick={() => handleRemoveItem(item.product_variant_id)}
+                    onClick={() => handleShowDeleteModal(item.product_variant_id)}
                     className="rounded-circle p-2 shadow-sm"
                     style={{ width: '40px', height: '50px' }}
                   >
@@ -99,10 +124,26 @@ function Cart() {
                 </div>
               </Card.Body>
             </Card>
+            
         );
       })
     )}
+    <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Remove from bag</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to delete this item?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={handleConfirmDelete}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
   </div>
+  
 );
 }
 

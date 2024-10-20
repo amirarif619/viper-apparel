@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { getAuth } from 'firebase/auth';
 
+
 export const fetchCart = createAsyncThunk('cart/fetchCart', async(_, { rejectWithValue }) => {
   const auth = getAuth();
   const user = auth.currentUser;
@@ -116,9 +117,20 @@ const cartSlice = createSlice({
         console.log("After adding item:", state.items);
       }
     })
-      .addCase(removeItem.fulfilled, (state, action) => {
-        state.items = state.items.filter(item => item.product_variant_id !== action.payload.product_variant_id);
-      })
+    .addCase(removeItem.fulfilled, (state, action) => {
+      console.log("Deleted item response:", action.payload);
+    
+      const deletedProductVariantId = Number(action.payload.data.product_variant_id);  
+      console.log('Deleted item ID from response:', deletedProductVariantId);
+    
+      state.items = state.items.filter(item => {
+        console.log(`Comparing item ID: ${item.product_variant_id} with deleted ID: ${deletedProductVariantId}`);
+        return item.product_variant_id !== deletedProductVariantId; 
+      });
+    
+      console.log('Items after deletion:', state.items);
+    })
+
       .addCase(updateItemQuantity.fulfilled, (state, action) => {
         console.log('Payload received in fulfilled action:', action.payload);
       

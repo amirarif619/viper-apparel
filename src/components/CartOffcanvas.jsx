@@ -24,7 +24,7 @@ function CartOffCanvas({show, handleClose}) {
     if (!cartFetched) {
       dispatch(fetchCart()).then((response) => {
         console.log("Cart fetched from backend:", response);
-        setCartFetched(true);  // Mark as fetched
+        setCartFetched(true); 
       });
     }
   }, [cartFetched, dispatch]);

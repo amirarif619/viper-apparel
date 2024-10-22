@@ -70,7 +70,7 @@ function MainNavbar() {
             
             <NavDropdown  className="nav-link-custom" title={<FontAwesomeIcon icon={faUser} />} id="basic-nav-dropdown">
               <NavDropdown.Item href="/auth">Log in / Sign Up</NavDropdown.Item>
-              <NavDropdown.Item href="/orders">My Orders</NavDropdown.Item>
+              <NavDropdown.Item href="/">My Orders</NavDropdown.Item>
               
               <NavDropdown.Divider />
               <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
@@ -78,7 +78,7 @@ function MainNavbar() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="/search">
+            <Nav.Link href="/">
               <i className="bi bi-search"></i>
             </Nav.Link>
             <Nav.Link as="button" className="nav-link-custom position-relative" onClick={handleShow}>

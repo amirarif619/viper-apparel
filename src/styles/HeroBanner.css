@@ -1,6 +1,6 @@
 .hero-banner {
     padding: 10px;
-    background-color: #f5f5f5; /* Match the background */
+    background-color: #ffffff;
   }
   
   .hero-content {
@@ -53,11 +53,12 @@
     }
   
     .hero-description {
-      font-size: 16px;
+      font-size: 15px;
     }
   
     .hero-banner {
       padding: 30px;
     }
   }
+  
   

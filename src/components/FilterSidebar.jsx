@@ -7,8 +7,8 @@ function FilterSidebar() {
       <div className="row">
         <div className="sidebar sticky-top">
           <h5>Mens</h5>
-          <h2>TANKS & STRINGERS</h2>
-          <p>55 Products</p>
+          <h2>TOPS & STRINGERS</h2>
+          <p>4 Products</p>
           <div className="btn-group mb-3" role="group">
             <button type="button" className="btn btn-outline-secondary">Styles</button>
             <button type="button" className="btn btn-outline-secondary">Colorways</button>
@@ -19,19 +19,25 @@ function FilterSidebar() {
       <Accordion.Item eventKey="0">
         <Accordion.Header>SIZE</Accordion.Header>
         <Accordion.Body>
-          Lorem 
+          SMALL 
+        </Accordion.Body>
+        <Accordion.Body>
+          MEDIUM 
+        </Accordion.Body>
+        <Accordion.Body>
+          LARGE 
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="1">
         <Accordion.Header>COLOR</Accordion.Header>
         <Accordion.Body>
-          Lorem 
+          BLACK 
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="2">
         <Accordion.Header>COLLECTION</Accordion.Header>
         <Accordion.Body>
-          Lorem 
+        SUMMER COLLECTION &apos;24 
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>

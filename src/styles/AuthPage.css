@@ -1,0 +1,38 @@
+
+.promo-side {
+    background-image: url('promo-image.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  
+  .form-container .logo {
+    width: 150px;
+  }
+  
+  .btn-group .btn {
+    padding: 10px 30px;
+  }
+  
+  .btn-dark {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .btn-dark:hover {
+    background-color: #333;
+    border-color: #333;
+  }
+  
+  .form-content {
+    opacity: 0; 
+    height: 0;   
+    overflow: hidden;
+    transition: opacity 1.2s ease, height 0.5s ease; 
+  }
+  
+  .form-content.active {
+    opacity: 1; 
+    height: auto; 
+  }

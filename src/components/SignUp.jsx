@@ -4,8 +4,7 @@ import { auth } from '../firebase';
 
 function SignUp() {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');  
+  const [password, setPassword] = useState(''); 
   const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
@@ -20,18 +19,14 @@ function SignUp() {
 
   return (
     <div>
-      <h2>Sign Up</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label>Full Name:</label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required className="form-control"/>
-        </div>
+        
         <div className="mb-3">
           <label>Email:</label>
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="form-control"/>
         </div>
-        <div className="mb-3">
+        <div className="mb-5">
           <label>Password:</label>
           <input
             type="password"
@@ -41,7 +36,7 @@ function SignUp() {
             className="form-control"
           />
         </div>
-        <button type="submit" className="btn btn-dark w-100">Sign Up</button>
+        <button type="submit" className="btn btn-dark w-100">Create account</button>
       </form>
     </div>
   );

@@ -69,7 +69,7 @@ function MainNavbar() {
             <Nav.Link href="/" className="nav-link-custom">NEW ARRIVALS</Nav.Link>
             
             <NavDropdown  className="nav-link-custom" title={<FontAwesomeIcon icon={faUser} />} id="basic-nav-dropdown">
-              <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+              <NavDropdown.Item href="/auth">Log in / Sign Up</NavDropdown.Item>
               <NavDropdown.Item href="/orders">My Orders</NavDropdown.Item>
               
               <NavDropdown.Divider />

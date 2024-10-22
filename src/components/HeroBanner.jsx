@@ -1,5 +1,4 @@
 import '../styles/HeroBanner.css'
-import SignIn from './SignIn';
 
 function HeroBanner() {
     return (
@@ -18,7 +17,6 @@ function HeroBanner() {
           </div>
         </div>
       </section>
-      <SignIn />
       </>
     );
   }

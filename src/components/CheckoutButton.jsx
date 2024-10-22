@@ -16,7 +16,7 @@ const CheckoutButton = () => {
 
   const handleCheckout = async () => {
     try {
-      const response = await fetch("https://57e1fe74-02a5-4657-b006-2b227766f34f-00-hxfn748x47r1.pike.replit.dev/create-checkout-session", {
+      const response = await fetch("https://db3e4171-27f7-40ea-8beb-79769220d4b8-00-33yyegd9x7com.pike.replit.dev/create-checkout-session", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

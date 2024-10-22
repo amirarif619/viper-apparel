@@ -10,7 +10,7 @@ export const fetchCart = createAsyncThunk('cart/fetchCart', async(_, { rejectWit
   if (user) {
     try {
       const token = await user.getIdToken();
-      const response = await axios.get('https://57e1fe74-02a5-4657-b006-2b227766f34f-00-hxfn748x47r1.pike.replit.dev/cart', {
+      const response = await axios.get('https://db3e4171-27f7-40ea-8beb-79769220d4b8-00-33yyegd9x7com.pike.replit.dev/cart', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -30,7 +30,7 @@ export const addItem = createAsyncThunk('cart/addItem', async (item, { rejectWit
   if (user) {
     try {
       const token = await user.getIdToken();
-      const response = await axios.post('https://57e1fe74-02a5-4657-b006-2b227766f34f-00-hxfn748x47r1.pike.replit.dev/cart', item, {
+      const response = await axios.post('https://db3e4171-27f7-40ea-8beb-79769220d4b8-00-33yyegd9x7com.pike.replit.dev/cart', item, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -50,7 +50,7 @@ export const removeItem = createAsyncThunk('cart/removeItem', async (id, { rejec
   if (user) {
     try {
       const token = await user.getIdToken();
-      const response = await axios.delete(`https://57e1fe74-02a5-4657-b006-2b227766f34f-00-hxfn748x47r1.pike.replit.dev/cart/${id}`, {
+      const response = await axios.delete(`https://db3e4171-27f7-40ea-8beb-79769220d4b8-00-33yyegd9x7com.pike.replit.dev/cart/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -70,7 +70,7 @@ export const updateItemQuantity = createAsyncThunk('cart/updateItemQuantity', as
   if (user) {
     try {
       const token = await user.getIdToken();
-      const response = await axios.put(`https://57e1fe74-02a5-4657-b006-2b227766f34f-00-hxfn748x47r1.pike.replit.dev/cart/${id}`, { quantity }, {
+      const response = await axios.put(`https://db3e4171-27f7-40ea-8beb-79769220d4b8-00-33yyegd9x7com.pike.replit.dev/cart/${id}`, { quantity }, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

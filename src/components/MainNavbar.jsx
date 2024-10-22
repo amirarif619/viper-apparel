@@ -11,15 +11,18 @@ import { useEffect, useState } from 'react';
 import CartOffcanvas from './CartOffcanvas';
 import { useDispatch, useSelector } from 'react-redux';
 import {  fetchCart } from '../redux/cartSlice';
-import { getAuth } from 'firebase/auth';
+import { getAuth, signOut } from 'firebase/auth';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 
 
 function MainNavbar() {
   
   const [show, setShow] = useState(false);
+  const [userEmail, setUserEmail] = useState('Guest')
   const dispatch = useDispatch()
   const auth = getAuth();
+  const navigate = useNavigate();
   
   const cartItems = useSelector((state) => state.cart.items) || [];
   const cartCount = Array.isArray(cartItems) 
@@ -29,10 +32,12 @@ function MainNavbar() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-       
+       setUserEmail(user.email);
         dispatch(fetchCart());
+      } else {
+        setUserEmail('Guest');
       }
-    })
+    });
     
     return () => unsubscribe();
   }, [auth, dispatch]);
@@ -43,6 +48,15 @@ function MainNavbar() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      console.log('User has logged out');
+      navigate('/')
+    } catch (error) {
+        console.error('Error logging out:', error)
+      }
+  }
   return (
     <>
       <CartOffcanvas show={show} handleClose={handleClose} />
@@ -83,12 +97,17 @@ function MainNavbar() {
               title={<FontAwesomeIcon icon={faUser} />}
               id="basic-nav-dropdown"
               >
+                <NavDropdown.Item >{userEmail}</NavDropdown.Item>
+                {userEmail === 'Guest' ? (
               <NavDropdown.Item href="/auth">Log in / Sign Up</NavDropdown.Item>
+                ) : (
+                  <>
               <NavDropdown.Item href="/">My Orders</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
+              <NavDropdown.Item as="button" onClick={handleLogout}>Logout</NavDropdown.Item>
+              </>
+                )}
             </NavDropdown>
-
             <Nav.Link as="button" className="nav-link-custom position-relative" onClick={handleShow}>
               <i className="bi bi-bag"></i>
               {cartCount > 0 && (

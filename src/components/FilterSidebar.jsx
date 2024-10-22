@@ -5,7 +5,7 @@ function FilterSidebar() {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="sidebar sticky-top">
+        <div className="sidebar sticky-top filter-sidebar">
           <h5>Mens</h5>
           <h2>TOPS & STRINGERS</h2>
           <p>4 Products</p>

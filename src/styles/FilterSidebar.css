@@ -23,3 +23,8 @@
     width: 100%;
     box-sizing: border-box; 
 }
+@media (max-width: 1500px) {
+    .filter-sidebar {
+      display: none;  
+    }
+  }

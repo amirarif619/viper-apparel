@@ -18,10 +18,10 @@ const HomePage = () => {
      </div>
        <Container fluid>
          <Row>
-           <Col xs={3}>
+           <Col xs={3} className="d-none d-md-block" >
        <FilterSidebar/>
        </Col>
-       <Col xs={9}>
+       <Col xs={12} md={9}>
        <Row>
        <ProductGrid/>
        </Row>

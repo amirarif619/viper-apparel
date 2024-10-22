@@ -12,6 +12,7 @@ import CartOffcanvas from './CartOffcanvas';
 import { useDispatch, useSelector } from 'react-redux';
 import {  fetchCart } from '../redux/cartSlice';
 import { getAuth } from 'firebase/auth';
+import Form from 'react-bootstrap/Form';
 
 
 function MainNavbar() {
@@ -44,58 +45,75 @@ function MainNavbar() {
   
   return (
     <>
-    <CartOffcanvas show={show} handleClose={handleClose} />
-    <Navbar bg="light" expand="lg" className="navbar-custom">
-      <Container fluid>
-        <Navbar.Brand href="/" className="me-auto">
-        
-        <img 
-        src={viperLogo}
-        width="75"
-        height="75"
-        className="d-inline-block align-top"
-        alt="Viper Logo"
-        /> 
-        
-      </Navbar.Brand>
-      <Nav.Link href="/" className="nav-link-custom px-2">VIPERWEAR</Nav.Link>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+      <CartOffcanvas show={show} handleClose={handleClose} />
+      <Navbar bg="light" expand="lg" className="navbar-custom">
+        <Container fluid className="align-items-center justify-content-between">
+
+
+
+          <Navbar.Brand href="/" className="d-flex align-items-center">
+            <img
+              src={viperLogo}
+              width="75"
+              height="75"
+              className="d-inline-block align-top"
+              alt="Viper Logo"
+            />
+            <Nav.Link href="/" className="nav-link-custom px-2">VIPERWEAR</Nav.Link>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="d-lg-none" />
           
-            <Nav.Link href="/" className="nav-link-custom">WOMEN</Nav.Link>
-            <Nav.Link href="/" className="nav-link-custom">MEN</Nav.Link>
-            <Nav.Link href="/" className="nav-link-custom">ACCESSORIES</Nav.Link>
-            <Nav.Link href="/" className="nav-link-custom">NEW ARRIVALS</Nav.Link>
-            
-            <NavDropdown  className="nav-link-custom" title={<FontAwesomeIcon icon={faUser} />} id="basic-nav-dropdown">
+          <Navbar.Collapse id="basic-navbar-nav" className="d-lg-none">
+            <Nav className="mx-auto nav-links-right">
+              <Nav.Link href="/" className="nav-link-custom">WOMEN</Nav.Link>
+              <Nav.Link href="/" className="nav-link-custom">MEN</Nav.Link>
+              <Nav.Link href="/" className="nav-link-custom">ACCESSORIES</Nav.Link>
+              <Nav.Link href="/" className="nav-link-custom">NEW ARRIVALS</Nav.Link>
+            </Nav>
+
+
+
+
+
+            </Navbar.Collapse>
+
+          <div className="ms-auto d-flex align-items-center">
+            <NavDropdown
+              className="nav-link-custom"
+              title={<FontAwesomeIcon icon={faUser} />}
+              id="basic-nav-dropdown"
+              >
               <NavDropdown.Item href="/auth">Log in / Sign Up</NavDropdown.Item>
               <NavDropdown.Item href="/">My Orders</NavDropdown.Item>
-              
               <NavDropdown.Divider />
               <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
-              
             </NavDropdown>
-          </Nav>
-          <Nav>
-            <Nav.Link href="/">
-              <i className="bi bi-search"></i>
-            </Nav.Link>
-            <Nav.Link as="button" className="nav-link-custom position-relative" onClick={handleShow}>
-                <i className="bi bi-bag"></i>
-                {cartCount > 0 && (
-                  <span className="cart-badge position-absolute translate-middle badge rounded-pill bg-danger">
-                    {cartCount}
-                  </span>
-                )}
 
-</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+            <Nav.Link as="button" className="nav-link-custom position-relative" onClick={handleShow}>
+              <i className="bi bi-bag"></i>
+              {cartCount > 0 && (
+                <span className="cart-badge position-absolute translate-middle badge rounded-pill bg-danger">
+                  {cartCount}
+                </span>
+              )}
+            </Nav.Link>
+          </div>
+          <Form className="d-flex me-3 search-bar">
+          <i className="bi bi-search"></i>
+            <Form.Control
+              type="search"
+              placeholder="Looking for something?"
+              className="me-2"
+              aria-label="Search"
+              style={{ width: '258px' }}
+            />
+      
+          </Form> 
+
+        </Container>
+      </Navbar>
     </>
   );
-};
-  
+}
+
 export default MainNavbar;

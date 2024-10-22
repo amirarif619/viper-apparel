@@ -10,8 +10,8 @@ function FilterSidebar() {
           <h2>TOPS & STRINGERS</h2>
           <p>4 Products</p>
           <div className="btn-group mb-3" role="group">
-            <button type="button" className="btn btn-outline-secondary">Styles</button>
-            <button type="button" className="btn btn-outline-secondary">Colorways</button>
+            <button type="button" className="btn btn-outline-dark">Styles</button>
+            <button type="button" className="btn btn-outline-dark">Colorways</button>
           </div>
           <input type="text" className="form-control mb-3" placeholder="Search products..." />
           <div className="accordion" id="filterAccordion">

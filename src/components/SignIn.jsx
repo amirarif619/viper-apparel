@@ -14,24 +14,22 @@ function SignIn() {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const token = await userCredential.user.getIdToken();
-      console.log('Firebase ID Token:', token)
-                                    
-      const response = await fetch('https://viperwearapparel-api.vercel.app/api/'
-        , {
-        method: 'GET',
+      
+      const response = await fetch('https://viperwearapparel-api.vercel.app/api/login', {
+        method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
         },
-        credentials: 'include'
-      })
-
+        credentials: 'include',
+      });
+  
       const data = await response.json();
-      console.log('Cart data:', data);
-
-      navigate('/home')
-
+      console.log('Login successful:', data);
+  
+      navigate('/home');
     } catch (error) {
+      console.error('Login error:', error);
       setError(error.message);
     }
   };

@@ -19,7 +19,7 @@ const SuccessPage = () => {
 
     if (sessionId) {
      
-      fetch(`viperwearapparel-9f03cja0v-amirarif619s-projects.vercel.app/retrieve-checkout-session/${sessionId}`)
+      fetch(`viperwearapparel-api.vercel.app/${sessionId}`)
         .then(response => response.json())
         .then(data => {
           setSessionData(data);

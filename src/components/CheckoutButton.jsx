@@ -16,7 +16,7 @@ const CheckoutButton = () => {
 
   const handleCheckout = async () => {
     try {
-      const response = await fetch("viperwearapparel-9f03cja0v-amirarif619s-projects.vercel.app/create-checkout-session", {
+      const response = await fetch("viperwearapparel-api.vercel.app/create-checkout-session", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

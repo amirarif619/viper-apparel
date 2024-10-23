@@ -3,7 +3,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import viperLogo from '../assets/viper.png'
-import '../styles/MainNavbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap-icons/font/bootstrap-icons.css'
@@ -62,9 +61,6 @@ function MainNavbar() {
       <CartOffcanvas show={show} handleClose={handleClose} />
       <Navbar bg="light" expand="lg" className="navbar-custom">
         <Container fluid className="align-items-center justify-content-between">
-
-
-
           <Navbar.Brand href="/" className="d-flex align-items-center">
             <img
               src={viperLogo}
@@ -75,20 +71,15 @@ function MainNavbar() {
             />
             <Nav.Link href="/" className="nav-link-custom px-2">VIPERWEAR</Nav.Link>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" className="d-lg-none" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
           
-          <Navbar.Collapse id="basic-navbar-nav" className="d-lg-none">
+          <Navbar.Collapse id="basic-navbar-nav" >
             <Nav className="mx-auto nav-links-right">
               <Nav.Link href="/" className="nav-link-custom">WOMEN</Nav.Link>
               <Nav.Link href="/" className="nav-link-custom">MEN</Nav.Link>
               <Nav.Link href="/" className="nav-link-custom">ACCESSORIES</Nav.Link>
               <Nav.Link href="/" className="nav-link-custom">NEW ARRIVALS</Nav.Link>
             </Nav>
-
-
-
-
-
             </Navbar.Collapse>
 
           <div className="ms-auto d-flex align-items-center">

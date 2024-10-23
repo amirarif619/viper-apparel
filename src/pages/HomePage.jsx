@@ -1,5 +1,5 @@
 import HeroBanner from "../components/HeroBanner";
-import MainNavbar from "../components/MainNavbar"
+//import MainNavbar from "../components/MainNavbar"
 import PromotionBanner from "../components/PromotionBanner";
 import FilterSidebar from "../components/FilterSidebar";
 import Footer from "../components/Footer";
@@ -7,11 +7,13 @@ import ProductGrid from "../components/ProductGrid";
 import { Col, Container, Row } from "react-bootstrap";
 import { ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SecondNavbar from "../components/SecondNavbar";
 
 const HomePage = () => {
     return (
         <>
-        <MainNavbar />
+       
+        <SecondNavbar />
         <PromotionBanner/>
         <div className="mb-5">
        <HeroBanner />

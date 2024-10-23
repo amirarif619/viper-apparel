@@ -8,8 +8,8 @@ import '../styles/Footer.css';
 
 function Footer() {
   return (
-    <footer className="footer">
-      <Container fluid>
+    <footer className="footer ms-3">
+      <Container fluid >
         <Row className="py-4">
           <Col xs={12} md={3}>
             <h6>HELP</h6>

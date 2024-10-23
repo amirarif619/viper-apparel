@@ -1,4 +1,9 @@
-/*import  { useCallback } from "react";
+/*
+
+HAVE SWITCHED TO REDIRECT CHECKOUT INSTEAD OF EMBEDDED CHECKOUT FORM
+
+
+import  { useCallback } from "react";
 import {loadStripe} from '@stripe/stripe-js';
 import { useSelector } from "react-redux"; 
 import {
@@ -7,7 +12,7 @@ import {
 } from '@stripe/react-stripe-js';
 
 
-const stripePromise = loadStripe("pk_test_51QBst1CRxzRlL2g87ITd5AjpgvWTcQHv2Z7FGF4AmFfPMMJc5ilBFdXDCGANj86Yy2C3I5FH0I5H1mqev5tqFQiJ00sUNtneGG");
+const stripePromise = loadStripe("");
 
 const CheckoutForm = () => {
  

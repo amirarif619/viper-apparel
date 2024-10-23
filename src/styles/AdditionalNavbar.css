@@ -49,7 +49,7 @@
   
   .cart-badge {
     top: 11px;
-    right: -7px;
+    right: -1px;
     transform: translate(50%, -80%);
     font-size: 0.75rem;
     padding: 0.25em 0.4em;
@@ -57,7 +57,7 @@
 
 @media (max-width: 1110px) {
     .nav-link-custom {
-        font-size: 12px !important;
+        font-size: 14px !important;
         margin-right: 5px !important;
         margin-left: 0 !important;  
         display: block !important;
@@ -110,6 +110,7 @@
     .search-bar {
         display: none !important;
     }
+    
 }
 
 .nav-links-right {

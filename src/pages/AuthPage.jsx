@@ -35,10 +35,10 @@ const AuthPage = () => {
               <img
                 src="viper.png"
                 alt="Gymshark Logo"
-                className="logo mb-3"
+                className="logo mb-4"
                 style={{ width: "150px" }}
               />
-              <h2 className="mb-4">ViperWear</h2>
+              <h1 className="brand-text mb-5">VIPERWARE</h1>
               <div className="btn-group mb-4" role="group">
                 <button
                   type="button"

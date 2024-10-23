@@ -15,6 +15,7 @@ import {  fetchCart } from '../redux/cartSlice';
 import { getAuth, signOut } from 'firebase/auth';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 function NewNavbar() {
 
@@ -52,7 +53,7 @@ function NewNavbar() {
     try {
       await signOut(auth);
       console.log('User has logged out');
-      navigate('/')
+      navigate('/auth')
     } catch (error) {
         console.error('Error logging out:', error)
       }
@@ -106,9 +107,12 @@ return (
               <NavDropdown.Item href="/auth">Log in / Sign Up</NavDropdown.Item>
                 ) : (
                   <>
+              <NavDropdown.Item href="/">My Profile</NavDropdown.Item>
               <NavDropdown.Item href="/">My Orders</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as="button" onClick={handleLogout}>Logout</NavDropdown.Item>
+              <NavDropdown.Item as="button" onClick={handleLogout}>
+              <FontAwesomeIcon icon={faSignOutAlt} className="me-3" />
+                Logout</NavDropdown.Item>
               </>
                 )}
             </NavDropdown>

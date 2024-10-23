@@ -49,7 +49,7 @@ function CartOffCanvas({show, handleClose}) {
     
 
 
-  const shipping = 5
+  const shipping = 0
   const total = subtotal + shipping;
 
   return (
@@ -62,8 +62,8 @@ function CartOffCanvas({show, handleClose}) {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div className="qualified-shipping mb-3">
-            <i className="bi bi-check-circle-fill text-success"></i>
-            You&apos;ve qualified for Free Standard Shipping 
+            <i className="bi bi-check-circle-fill text-success me-2"></i>
+            You&apos;ve qualified for Free Standard Shipping!
           </div>
         <Cart items={cartItems} subtotal={subtotal}/>
         </Offcanvas.Body>

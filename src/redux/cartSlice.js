@@ -10,7 +10,7 @@ export const fetchCart = createAsyncThunk('cart/fetchCart', async(_, { rejectWit
   if (user) {
     try {
       const token = await user.getIdToken();
-      const response = await axios.get('viperwearapparel-api.vercel.app/cart', {
+      const response = await axios.get('https://viperwearapparel-api.vercel.app/cart', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -30,7 +30,7 @@ export const addItem = createAsyncThunk('cart/addItem', async (item, { rejectWit
   if (user) {
     try {
       const token = await user.getIdToken();
-      const response = await axios.post('viperwearapparel-api.vercel.app', item, {
+      const response = await axios.post('https://viperwearapparel-api.vercel.app', item, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -50,7 +50,7 @@ export const removeItem = createAsyncThunk('cart/removeItem', async (id, { rejec
   if (user) {
     try {
       const token = await user.getIdToken();
-      const response = await axios.delete(`viperwearapparel-api.vercel.appcart/${id}`, {
+      const response = await axios.delete(`https://viperwearapparel-api.vercel.appcart/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -70,7 +70,7 @@ export const updateItemQuantity = createAsyncThunk('cart/updateItemQuantity', as
   if (user) {
     try {
       const token = await user.getIdToken();
-      const response = await axios.put(`viperwearapparel-api.vercel.app/cart/${id}`, { quantity }, {
+      const response = await axios.put(`https://viperwearapparel-api.vercel.app/cart/${id}`, { quantity }, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

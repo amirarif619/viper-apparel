@@ -6,7 +6,7 @@ const Return = () => {
 
   useEffect(() => {
     const sessionId = new URLSearchParams(window.location.search).get('session_id');
-    fetch(`viperwearapparel-api.vercel.app/session-status?session_id=${sessionId}`)
+    fetch(`https://viperwearapparel-api.vercel.app/session-status?session_id=${sessionId}`)
       .then(res => res.json())
       .then(data => {
         setStatus(data.status);

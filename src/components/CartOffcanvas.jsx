@@ -10,7 +10,7 @@ import CheckoutButton from './CheckoutButton';
 
 function CartOffCanvas({show, handleClose}) {
   const dispatch = useDispatch();
-  const { items, loading, error } = useSelector((state) => state.cart);
+  const { items, error } = useSelector((state) => state.cart);
   const [cartFetched, setCartFetched] = useState(false);
   const [offCanvasOpen, setOffCanvasOpen] = useState(show);
   
@@ -35,7 +35,7 @@ function CartOffCanvas({show, handleClose}) {
   
   const cartItems = Array.isArray(items) ? items : [];
 
-  if (loading) return <p>Loading cart....</p>;
+  
   if (error) return <p>Error fetching cart: {error}</p>
   
   const subtotal = cartItems.reduce((acc, item) => {

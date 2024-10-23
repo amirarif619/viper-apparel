@@ -47,7 +47,7 @@ const SuccessPage = () => {
       }, 1000);
 
       if (countdown === 0) {
-        navigate('/'); 
+        navigate('/home'); 
       }
 
       return () => clearInterval(countdownInterval);  
@@ -75,7 +75,7 @@ const SuccessPage = () => {
         <Card.Text className="mt-3">Thank you for your purchase!</Card.Text>
         <Card.Text>Total: ${sessionData.amount_total / 100}</Card.Text>
         <Card.Text>We’ve sent a confirmation email with the details of your order to {sessionData.customer_details.email}.</Card.Text>
-        <Card.Text className="mt-3">Should there be any issues please email support@viperware.com</Card.Text>
+        <Card.Text className="mt-3">Should there be any issues please email support@viperwear.com</Card.Text>
         <Card.Text>Redirecting to home page in {countdown} seconds...</Card.Text>
         <Button className="mt-3" variant="dark" onClick={() => navigate('/')}>Return to Home</Button>
       </Card.Body>

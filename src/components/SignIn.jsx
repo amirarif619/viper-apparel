@@ -27,7 +27,7 @@ function SignIn() {
       const data = await response.json();
       console.log('Cart data:', data);
 
-      navigate('/')
+      navigate('/home')
 
     } catch (error) {
       setError(error.message);

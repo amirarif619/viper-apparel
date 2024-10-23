@@ -53,7 +53,7 @@ function NewNavbar() {
     try {
       await signOut(auth);
       console.log('User has logged out');
-      navigate('/auth')
+      navigate('/')
     } catch (error) {
         console.error('Error logging out:', error)
       }

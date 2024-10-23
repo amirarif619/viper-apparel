@@ -25,7 +25,7 @@ function SignUp() {
 
       console.log('User registered:', userCredential.user);
 
-      navigate('/')
+      navigate('/home')
 
     } catch (error) {
       setError(error.message);

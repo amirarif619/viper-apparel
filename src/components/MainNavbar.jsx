@@ -90,7 +90,7 @@ function MainNavbar() {
               >
                 <NavDropdown.Item >{userEmail}</NavDropdown.Item>
                 {userEmail === 'Guest' ? (
-              <NavDropdown.Item href="/auth">Log in / Sign Up</NavDropdown.Item>
+              <NavDropdown.Item href="/">Log in / Sign Up</NavDropdown.Item>
                 ) : (
                   <>
               <NavDropdown.Item href="/">My Orders</NavDropdown.Item>

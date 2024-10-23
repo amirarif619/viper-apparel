@@ -19,7 +19,7 @@ function SignUp() {
       const firebaseUid = userCredential.user.uid;
       const userEmail = userCredential.user.email;
 
-      await axios.post('https://db3e4171-27f7-40ea-8beb-79769220d4b8-00-33yyegd9x7com.pike.replit.dev/users', {
+      await axios.post('viperwearapparel-9f03cja0v-amirarif619s-projects.vercel.app/users', {
         firebase_uid: firebaseUid,
         email: userEmail});
 

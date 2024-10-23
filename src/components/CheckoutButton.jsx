@@ -16,7 +16,7 @@ const CheckoutButton = () => {
 
   const handleCheckout = async () => {
     try {
-      const response = await fetch("https://db3e4171-27f7-40ea-8beb-79769220d4b8-00-33yyegd9x7com.pike.replit.dev/create-checkout-session", {
+      const response = await fetch("viperwearapparel-9f03cja0v-amirarif619s-projects.vercel.app/create-checkout-session", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

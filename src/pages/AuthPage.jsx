@@ -38,7 +38,10 @@ const AuthPage = () => {
                 className="logo mb-4"
                 style={{ width: "150px" }}
               />
-              <h1 className="brand-text mb-5">VIPERWARE</h1>
+              <h1 className="brand-text mb-3">VIPERWARE</h1>
+              <p className="login-description">
+        Shop your styles, track those orders & train with us.
+      </p>
               <div className="btn-group mb-4" role="group">
                 <button
                   type="button"

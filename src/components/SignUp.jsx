@@ -38,17 +38,23 @@ function SignUp() {
       <form onSubmit={handleSubmit}>
         
         <div className="mb-3">
-          <label>Email:</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="form-control"/>
+          
+          <input type="email" 
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)} 
+          required 
+          placeholder="Email address*"
+          className="form-control"/>
         </div>
         <div className="mb-5">
-          <label>Password:</label>
+       
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             className="form-control"
+            placeholder="Password*"
           />
         </div>
         <button type="submit" className="btn btn-dark w-100">Create account</button>

@@ -38,28 +38,34 @@ function SignIn() {
     <div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label>Email:</label>
+        <div className="mb-2">
+          
           <input 
           type="email" 
+          placeholder="Email address*"
           value={email} 
           onChange={(e) => setEmail(e.target.value)} 
           required
           className="form-control"
           />
         </div>
-        <div className="mb-5">
-          <label>Password:</label>
+        <div className="mb-4">
+          
           <input
             type="password"
+            placeholder="Password*"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             className="form-control"
           />
+          
         </div>
         <button type="submit" className="btn btn-dark w-100">Sign In</button>
       </form>
+      <p className="mt-3 signup-link">
+        Don’t have an account? <a href="/signup">Sign up</a>
+      </p>
     </div>
   );
 }

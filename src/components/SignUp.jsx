@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';  
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import '../styles/SignInAndOutForm.css'
 
 function SignUp() {
   const [email, setEmail] = useState('');
@@ -46,7 +47,7 @@ function SignUp() {
           placeholder="Email address*"
           className="form-control"/>
         </div>
-        <div className="mb-5">
+        <div className="mb-4">
        
           <input
             type="password"
@@ -57,8 +58,14 @@ function SignUp() {
             placeholder="Password*"
           />
         </div>
-        <button type="submit" className="btn btn-dark w-100">Create account</button>
+        <button type="submit" className="mt-2 btn btn-dark w-100">Create Account</button>
       </form>
+      <p className="mt-3 toggle-text hidden-text" style={{ textAlign: "center" , fontSize: "16px"}}>
+Hidden
+</p>
+    
+     
+    
     </div>
   );
 }

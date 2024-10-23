@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase'; //reminder that this is to import auth object from firebase
 import { useNavigate } from 'react-router-dom';
-
+import '../styles/SignInAndOutForm.css'
 function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -40,7 +40,7 @@ function SignIn() {
     <div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
-        <div className="mb-2">
+        <div className="mb-3">
           
           <input 
           type="email" 
@@ -63,11 +63,12 @@ function SignIn() {
           />
           
         </div>
-        <button type="submit" className="btn btn-dark w-100">Sign In</button>
+        <button type="submit" className="mt-2 btn btn-dark w-100">Sign In</button>
       </form>
-      <p className="mt-3 signup-link">
-        Don’t have an account? <a href="/signup">Sign up</a>
-      </p>
+      <p className="mt-3 toggle-text" style={{ textAlign: "center" , fontSize: "16px"}}>
+  Don’t have an account? <span style={{ fontSize: "16px" , fontWeight: "bold", textDecoration: "underline" }}>Sign up</span>
+</p>
+
     </div>
   );
 }

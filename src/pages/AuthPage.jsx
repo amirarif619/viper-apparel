@@ -42,7 +42,7 @@ const AuthPage = () => {
               <p className="login-description">
         Shop your styles, track those orders & train with us.
       </p>
-              <div className="btn-group mb-4" role="group">
+              <div className="btn-group mb-3" role="group">
                 <button
                   type="button"
                   className={`btn ${isLogin ? 'btn-dark' : 'btn-outline-dark'}`}

@@ -16,7 +16,7 @@ function SignIn() {
       const token = await userCredential.user.getIdToken();
       console.log('Firebase ID Token:', token)
                                     
-      const response = await fetch('https://viperwearapparel-api.vercel.app/api'
+      const response = await fetch('https://viperwearapparel-api.vercel.app/api/'
         , {
         method: 'GET',
         headers: {

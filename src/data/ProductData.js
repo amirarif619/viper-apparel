@@ -83,7 +83,7 @@ const products = [
     },
     {
       product_variant_id: 6,
-      name: '1/4 Full sleeve top',
+      name: '1/4 Full Sleeve Top',
       price: 38.99,
       image: 'https://firebasestorage.googleapis.com/v0/b/viper-apparel.appspot.com/o/MENS%2FMENFRONTquarterzippullover.webp?alt=media&token=41a293be-5f07-4560-80ba-9477968eeb23',
       backImage: 'https://firebasestorage.googleapis.com/v0/b/viper-apparel.appspot.com/o/MENS%2FMENBACKquarterzippullover.webp?alt=media&token=d2b0aa22-7338-4ab0-abbf-a28ce87cb823',

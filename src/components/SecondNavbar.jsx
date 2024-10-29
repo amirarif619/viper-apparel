@@ -16,6 +16,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { setSearchTerm } from '../redux/searchSlice';
 
 function NewNavbar() {
 
@@ -24,7 +25,7 @@ function NewNavbar() {
   const dispatch = useDispatch()
   const auth = getAuth();
   const navigate = useNavigate();
-
+   
     const cartItems = useSelector((state) => state.cart.items) || [];
   const cartCount = Array.isArray(cartItems) 
   ? cartItems.reduce((acc, item) => acc + item.quantity, 0)
@@ -58,6 +59,13 @@ function NewNavbar() {
         console.error('Error logging out:', error)
       }
   }
+
+ 
+
+  const handleSearchChange = (e) => {
+    dispatch(setSearchTerm(e.target.value));
+  };
+
 return (
     <>
       <CartOffcanvas show={show} handleClose={handleClose} />
@@ -69,7 +77,7 @@ return (
           </div>
 
           <div className="d-flex align-items-center mx-auto"></div>
-          <Navbar.Brand href="/" className="mx-auto d-flex align-items-center justify-content-center">
+          <Navbar.Brand href="/home" className="mx-auto d-flex align-items-center justify-content-center">
             <img
               src={viperLogo}
               width="50"
@@ -91,6 +99,7 @@ return (
               className="me-2"
               aria-label="Search"
               style={{ width: '258px' }}
+              onChange={handleSearchChange} 
             />
           </Form>
 
@@ -104,11 +113,11 @@ return (
             >
             <NavDropdown.Item >{userEmail}</NavDropdown.Item>
                 {userEmail === 'Guest' ? (
-              <NavDropdown.Item href="/auth">Log in / Sign Up</NavDropdown.Item>
+              <NavDropdown.Item href="/">Log in / Sign Up</NavDropdown.Item>
                 ) : (
                   <>
-              <NavDropdown.Item href="/">My Profile</NavDropdown.Item>
-              <NavDropdown.Item href="/">My Orders</NavDropdown.Item>
+              <NavDropdown.Item href="/home">My Profile</NavDropdown.Item>
+              <NavDropdown.Item href="/home">My Orders</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as="button" onClick={handleLogout}>
               <FontAwesomeIcon icon={faSignOutAlt} className="me-3" />
@@ -130,10 +139,10 @@ return (
        
         <Navbar.Collapse id="basic-navbar-nav" className="order-lg-2">
           <Nav className="mx-auto navbar-nav ">
-            <Nav.Link href="/" className="nav-link-custom">WOMEN</Nav.Link>
-            <Nav.Link href="/" className="nav-link-custom">MEN</Nav.Link>
-            <Nav.Link href="/" className="nav-link-custom">ACCESSORIES</Nav.Link>
-            <Nav.Link href="/" className="nav-link-custom">NEW ARRIVALS</Nav.Link>
+            <Nav.Link href="/home" className="nav-link-custom">WOMEN</Nav.Link>
+            <Nav.Link href="/home" className="nav-link-custom">MEN</Nav.Link>
+            <Nav.Link href="/home" className="nav-link-custom">ACCESSORIES</Nav.Link>
+            <Nav.Link href="/home" className="nav-link-custom">NEW ARRIVALS</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

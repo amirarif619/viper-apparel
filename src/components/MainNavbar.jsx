@@ -61,7 +61,7 @@ function MainNavbar() {
       <CartOffcanvas show={show} handleClose={handleClose} />
       <Navbar bg="light" expand="lg" className="navbar-custom">
         <Container fluid className="align-items-center justify-content-between">
-          <Navbar.Brand href="/" className="d-flex align-items-center">
+          <Navbar.Brand href="/home" className="d-flex align-items-center">
             <img
               src={viperLogo}
               width="75"
@@ -69,16 +69,16 @@ function MainNavbar() {
               className="d-inline-block align-top"
               alt="Viper Logo"
             />
-            <Nav.Link href="/" className="nav-link-custom px-2">VIPERWEAR</Nav.Link>
+            <Nav.Link href="/home" className="nav-link-custom px-2">VIPERWEAR</Nav.Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           
           <Navbar.Collapse id="basic-navbar-nav" >
             <Nav className="mx-auto nav-links-right">
-              <Nav.Link href="/" className="nav-link-custom">WOMEN</Nav.Link>
-              <Nav.Link href="/" className="nav-link-custom">MEN</Nav.Link>
-              <Nav.Link href="/" className="nav-link-custom">ACCESSORIES</Nav.Link>
-              <Nav.Link href="/" className="nav-link-custom">NEW ARRIVALS</Nav.Link>
+              <Nav.Link href="/home" className="nav-link-custom">WOMEN</Nav.Link>
+              <Nav.Link href="/home" className="nav-link-custom">MEN</Nav.Link>
+              <Nav.Link href="/home" className="nav-link-custom">ACCESSORIES</Nav.Link>
+              <Nav.Link href="/home" className="nav-link-custom">NEW ARRIVALS</Nav.Link>
             </Nav>
             </Navbar.Collapse>
 
@@ -93,7 +93,7 @@ function MainNavbar() {
               <NavDropdown.Item href="/">Log in / Sign Up</NavDropdown.Item>
                 ) : (
                   <>
-              <NavDropdown.Item href="/">My Orders</NavDropdown.Item>
+              <NavDropdown.Item href="/home">My Orders</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as="button" onClick={handleLogout}>Logout</NavDropdown.Item>
               </>

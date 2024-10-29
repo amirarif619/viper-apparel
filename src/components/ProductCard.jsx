@@ -2,17 +2,22 @@
 import Card from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { Button } from 'react-bootstrap';
+import { Button, Placeholder } from 'react-bootstrap';
 import '../styles/ProductCard.css'
 import { useDispatch } from 'react-redux';
 import { addItem } from '../redux/cartSlice';
 import { toast } from 'react-toastify';
+import { faCheckCircle, faStar } from '@fortawesome/free-solid-svg-icons';
+import { useState, useEffect } from 'react';
 
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-
-function ProductCard({product_variant_id, name, price, image, description}) {
-
+function ProductCard({product_variant_id, name, price, image, backImage, description, rating, isNew}) {
+  const [isLoading, setIsLoading] = useState(true)
   const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 800);
+  }, []);
 
     const handleAddToCart = () => {
       
@@ -46,22 +51,82 @@ function ProductCard({product_variant_id, name, price, image, description}) {
   return (
     <Card  className="product-card ">
     <div className="image-container">
+      {isNew && <span className="badge-new">NEW</span>}
+
+    {isLoading ? (
+       <div className="product-image-placeholder" />
+        ) : (
+      <>
       <Card.Img 
         variant="top" 
         src={image} 
         className="product-image" 
       />
+              <Card.Img 
+          variant="top" 
+          src={backImage} 
+          className="product-back-image" 
+        />
+      </>
+    )}
       <Button variant="light" className="wishlist-button">
         <FontAwesomeIcon icon={faHeart} />
       </Button>
     </div>
+
     <Card.Body>
+      {isLoading ? (
+        <Placeholder as={Card.Title} animation="glow">
+          <Placeholder xs={6} />
+        </Placeholder>
+      ) : (
       <Card.Title>{name}</Card.Title>
+      )}
+      {isLoading ? (
+        <Placeholder as={Card.Text} animation="glow">
+          <Placeholder xs={8} /><Placeholder xs={5} />
+        </Placeholder>
+      ) : (
       <Card.Text>{description}</Card.Text>
-      <Card.Text>
-        <strong>${price.toFixed(2)}</strong>
-      </Card.Text>
-      <Button variant="dark" onClick={handleAddToCart}>Add to Cart</Button>
+      )}
+      
+      <div className="price-rating">
+        {isLoading ? (
+          <Placeholder as={Card.Text} animation="glow">
+            <Placeholder xs={4} />
+          </Placeholder>
+        ) : (
+        <Card.Text className="price">
+          <strong>${price.toFixed(2)}</strong>
+        </Card.Text>
+        )}
+        <div className="rating">
+          {isLoading ? (
+            <Placeholder animation="glow">
+              <Placeholder xs={2} />
+            </Placeholder>
+          ) : (
+            <>
+          <FontAwesomeIcon icon={faStar} /> 
+          <span>{rating}</span> 
+          </>
+          )}
+        </div>
+      </div>
+
+      <div className="addtocart-container">
+          {isLoading ? (
+            <Placeholder.Button variant="dark" xs={12} className="full-width-placeholder" />
+          ) : (
+            <Button 
+              className="addtocartbutton" 
+              variant="dark" 
+              onClick={handleAddToCart}
+            >
+              Add to Cart
+            </Button>
+          )}
+</div>
     </Card.Body>
   </Card>
 );

@@ -28,7 +28,7 @@ function PromotionBanner() {
            >
             <Carousel.Item>
               <div className="d-flex justify-content-center align-items-center">
-                <p className="m-0"> 🎃 10% HALLOWEEN DISCOUNT! USE CODE SPOOKTOBER10 AT CHECKOUT 🎃</p>
+                <p className="m-0"> 🎃20% HALLOWEEN DISCOUNT! USE CODE SPOOKY20 🎃</p>
               </div>
             </Carousel.Item>
             <Carousel.Item>

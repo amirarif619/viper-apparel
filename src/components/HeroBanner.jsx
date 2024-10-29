@@ -11,9 +11,9 @@ function HeroBanner() {
             Get ready for the ultimate style and performance combo with our womens gym t-shirts. These wardrobe essentials are all about keeping you comfy and feeling your personal best. Whether youre sweating your way through a HIIT workout, getting your reps in, or enjoying rest day with friends, our workout shirts and tops offer high-performance materials, versatile shapes, and fashionable designs.
           </p>
           <div className="hero-links">
-            <a href="/">Gym Plain Tops</a> | 
-            <a href="/"> Long Sleeve Gym Tops</a> | 
-            <a href="/"> Gym Hoodies</a>
+            <a href="/home">Gym Plain Tops</a> | 
+            <a href="/home"> Long Sleeve Gym Tops</a> | 
+            <a href="/home"> Gym Hoodies</a>
           </div>
         </div>
       </section>

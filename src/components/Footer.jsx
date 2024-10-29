@@ -32,7 +32,7 @@ function Footer() {
           <Col xs={12} md={3}>
             <h6>PAGES</h6>
             <ul>
-              <li><a href="#">Gymshark Central</a></li>
+              <li><a href="#">VIPERWEAR Central</a></li>
               <li><a href="#">Careers</a></li>
               <li><a href="#">About Us</a></li>
               <li><a href="#">Student Discount</a></li>

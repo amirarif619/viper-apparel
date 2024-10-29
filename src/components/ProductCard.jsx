@@ -31,12 +31,12 @@ function ProductCard({product_variant_id, name, price, image, backImage, descrip
               <img 
                 src={image} 
                 alt={name} 
-                style={{ width: '70px', height: '70px', marginRight: '15px', borderRadius: '5px' }} 
+                style={{ width: '75px', height: '75px', marginRight: '15px', borderRadius: '5px' }} 
               />
-              <div style={{ flexGrow: 1 }}>
-                <h4 style={{ margin: 0, fontSize: '19px', color: '#000', fontWeight: 'bold', padding: '5px' }}>Added To Bag</h4>
-                <p style={{ margin: 0, fontSize: '17px' }}>{name}</p>
-              </div>
+               <div style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <h4 style={{ margin: 0, fontSize: '19px', color: '#000', fontWeight: 'bold' }}>Added To Bag!</h4>
+      <p style={{ margin: 0, fontSize: '18px', color: '#666' }}>{name}</p>
+    </div>
               <FontAwesomeIcon 
                 icon={faCheckCircle} 
                 style={{ marginLeft: 'auto', color: 'black', fontSize: '20px' }} 

@@ -39,6 +39,6 @@
 
   @media (max-width: 768px) {
     .brand-text {
-      transform: translateX(40px); 
+      margin-left: 0px !important; ; 
     }
 }
